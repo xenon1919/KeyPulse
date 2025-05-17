@@ -29,11 +29,14 @@ const Manager = () => {
 
   const fetchPasswords = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/passwords", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        "https://keypulse-backend.onrender.com/api/passwords",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       if (response.ok) {
         const data = await response.json();
         setPasswordArray(data);
@@ -78,8 +81,8 @@ const Manager = () => {
       try {
         const method = form.id ? "PUT" : "POST";
         const url = form.id
-          ? `http://localhost:3000/api/passwords/${form.id}`
-          : "http://localhost:3000/api/passwords";
+          ? `https://keypulse-backend.onrender.com/api/passwords/${form.id}`
+          : "https://keypulse-backend.onrender.com/api/passwords";
         const response = await fetch(url, {
           method,
           headers: {
@@ -138,7 +141,7 @@ const Manager = () => {
     if (window.confirm("Are you sure you want to delete this password?")) {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/passwords/${id}`,
+          `https://keypulse-backend.onrender.com/api/passwords/${id}`,
           {
             method: "DELETE",
             headers: {
