@@ -17,7 +17,7 @@ const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(bodyParser.json());
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: "https://keypulse.onrender.com" }));
 app.use(express.json());
 
 // Rate limiting for auth endpoints
